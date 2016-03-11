@@ -88,7 +88,7 @@ class GameViewController: UIViewController {
         }
         text.text = resultString
         image.image = UIImage(named:"hangman1.gif")
-        print(characters)
+        //print(characters)
     }
     
     override func viewDidLoad() {
@@ -111,8 +111,7 @@ class GameViewController: UIViewController {
         }
         text.text = resultString
         image.image = UIImage(named:"hangman1.gif")
-        print(characters)
-        text.reloadInputViews()
+        //print(characters)
         //print(phrase)
     }
 
@@ -228,8 +227,8 @@ class GameViewController: UIViewController {
         button.enabled = false
         buttons.append(button)
         text.text = resultString
-        print("Resultstring: " + resultString)
-        print("Phrase:" + characterString)
+       // print("Resultstring: " + resultString)
+       // print("Phrase:" + characterString)
         if resultString == characterString{
             let alertController = UIAlertController(title: "Hello Player", message:
                 "Congrats! You Win!", preferredStyle: UIAlertControllerStyle.Alert)
