@@ -163,7 +163,6 @@
 		ECC22F721C8917D300749E58 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				ECC94FB71C891E31006B4A98 /* StartScreenViewController.swift */,
 				ECC22F701C8917C200749E58 /* GameViewController.swift */,
 			);
 			name = Controller;
@@ -182,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				ECC22F7D1C891CF800749E58 /* HangmanPhrases.swift */,
+				ECC94FB71C891E31006B4A98 /* StartScreenViewController.swift */,
 				ECC22F7B1C891A6700749E58 /* phrases.plist */,
 			);
 			name = Model;
