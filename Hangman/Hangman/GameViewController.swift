@@ -6,6 +6,7 @@
 //  Copyright © 2016 Shawn D'Souza. All rights reserved.
 //
 
+import QuartzCore
 import UIKit
 
 class GameViewController: UIViewController {
@@ -38,10 +39,11 @@ class GameViewController: UIViewController {
         dashesAndCorrectLetters.removeAll()
         resultString = ""
         characterString = ""
-        guessedLetters.text = "Guessed:  "
+        guessedLetters.text = "          Incorrect guesses:  "
         errorCount = 1
         for button in buttons {
             button.enabled = true
+            button.backgroundColor = UIColor.lightGrayColor()
         }
         for char in phrase.characters {
             if char == " " {
@@ -67,9 +69,10 @@ class GameViewController: UIViewController {
         dashesAndCorrectLetters.removeAll()
         resultString = ""
         characterString = ""
-        guessedLetters.text = "Guessed:  "
+        guessedLetters.text = "          Incorrect guesses:  "
         errorCount = 1
         for button in buttons {
+            button.backgroundColor = UIColor.lightGrayColor()
             button.enabled = true
         }
         let hangmanPhrases = HangmanPhrases()
@@ -93,7 +96,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        text.layer.cornerRadius = 5
+        guessedLetters.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
         let hangmanPhrases = HangmanPhrases()
         phrase = hangmanPhrases.getRandomPhrase()
@@ -217,13 +221,15 @@ class GameViewController: UIViewController {
             characterString += i
         }
         if count >= 1 {
-            button.titleLabel?.textColor = UIColor.greenColor()
+            button.setTitleColor(UIColor.greenColor(), forState: .Disabled)
         } else {
-            button.titleLabel?.textColor = UIColor.redColor()
+            //button.titleLabel?.textColor = UIColor.redColor()
+            button.setTitleColor(UIColor.redColor(), forState: .Disabled)
             errorCount+=1
             image.image = UIImage(named:"hangman\(errorCount).gif")
+            guessedLetters.text! += letter! + "  "
         }
-        guessedLetters.text! += letter! + "  "
+        button.backgroundColor = UIColor.clearColor()
         button.enabled = false
         buttons.append(button)
         text.text = resultString

@@ -10,8 +10,12 @@ import UIKit
 
 class StartScreenViewController: UIViewController {
 
+
+    @IBOutlet weak var hang: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        hang.image = UIImage(named:"hangman1.gif")
 
         // Do any additional setup after loading the view.
     }
